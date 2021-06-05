@@ -19,7 +19,6 @@ export const TasksProvider = ({ children }) => {
     const response = await api.get("/task", {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log("dentro do loadtasks", response.data.data);
     setTaskList(response.data.data);
   };
 
@@ -32,13 +31,10 @@ export const TasksProvider = ({ children }) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(description);
     await loadTasks();
   };
 
   const removeTask = async (id) => {
-    console.log("dentro do delete", id);
-    console.log(token);
     await api.delete(`/task/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,

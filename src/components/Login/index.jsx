@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { useLogin } from "../../Providers/login";
 import { useTasks } from "../../Providers/tasks";
+import { LoginContainer, ModalContainer } from "./styles";
 
 export default function Login() {
   const { setToken } = useLogin();
@@ -38,25 +39,28 @@ export default function Login() {
   };
 
   return (
-    <>
-      <div>
-        <figure>Imagem do carinha</figure>
-      </div>
-      <div>
-        <h2>
-          Sign in
+    <LoginContainer>
+      <ModalContainer>
+        <div>
+          <figure>
+            <img src="/image1.jpg" alt="figure of a working guy" />
+            <figcaption style={{ display: "none" }}>Working guy</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h2>Sign in</h2>
           <p>to access your list</p>
-        </h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <p>User:</p>
-          <input type="text" {...register("email")} />
-          <p>{errors.email?.message}</p>
-          <p>Password:</p>
-          <input type="password" {...register("password")} />
-          <p>{errors.password?.message}</p>
-          <button type="submit">Sign up</button>
-        </form>
-      </div>
-    </>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <span>User:</span>
+            <input type="text" {...register("email")} />
+            <span style={{ color: "red" }}>{errors.email?.message}</span>
+            <span>Password:</span>
+            <input type="password" {...register("password")} />
+            <span style={{ color: "red" }}>{errors.password?.message}</span>
+            <button type="submit">Sign up</button>
+          </form>
+        </div>
+      </ModalContainer>
+    </LoginContainer>
   );
 }

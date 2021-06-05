@@ -8,26 +8,42 @@ export default createGlobalStyle`
   outline: 0;
  }
 
+  :root {
+  --green: #4AC959;
+  --orange: #E88D39;
+  --black: #000000;
+  --white: #ffffff;
+ }
+
  body {
-    background: #f5f5f5;
-    color: #312e38;
+    background: var(--white);
+    color: var(--black);
     -webkit-font-smoothing: antialiased !important
   }
 
-  body, input, button {
+  /* body, input, button {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
   }
 
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 600;
-  }
+  } */
 
   button {
     cursor: pointer;
+    outline: none;
+    border: 0;
+  }
+  
+  li {
+    list-style: none;
   }
   
   a {
     text-decoration: none;
+  }
+  a:visited {
+    color: var(--white);
   }
 `;
