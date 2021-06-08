@@ -33,4 +33,10 @@ export const Container = styled.div`
     display: flex;
     justify-content: flex-start;
   }
+
+  label {
+    width: 24px;
+    height: 24px;
+    margin-left: 23px;
+  }
 `;

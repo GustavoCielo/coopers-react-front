@@ -7,6 +7,7 @@ export const LoginProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("@coopers:token")) || ""
   );
 
+
   return (
     <LoginContext.Provider value={{ token, setToken }}>
       {children}

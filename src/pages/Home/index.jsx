@@ -1,5 +1,6 @@
 import Done from "../../components/Done";
 import ToDoList from "../../components/ToDoList";
+import { useLogin } from "../../Providers/login";
 import {
   ArrowContainer,
   Button,
@@ -15,7 +16,7 @@ import {
 } from "./styles";
 
 export default function Home() {
-  console.log("I work");
+  const { token } = useLogin();
   return (
     <Container>
       <header></header>
@@ -28,13 +29,15 @@ export default function Home() {
                 Logo for coopers
               </figcaption>
             </figure>
-            <Button
-              onClick={() => {
-                localStorage.clear();
-              }}
-            >
-              Entrar
-            </Button>
+            {!token && (
+              <Button
+                onClick={() => {
+                  localStorage.clear();
+                }}
+              >
+                Entrar
+              </Button>
+            )}
           </LogoContainer>
           <MainContainer>
             <TextContainer>
@@ -55,7 +58,9 @@ export default function Home() {
             </ImageContainer>
           </MainContainer>
           <ArrowContainer>
-            <img src="/scroll.svg" alt="arrow down" />
+            <a href="/#ToDoTitleContainer">
+              <img src="/scroll.svg" alt="arrow down" />
+            </a>
           </ArrowContainer>
         </FlexContainer>
       </div>

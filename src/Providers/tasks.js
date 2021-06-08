@@ -11,13 +11,13 @@ export const TasksProvider = ({ children }) => {
 
   useEffect(() => {
     if (token) {
-      loadTasks();
+      loadTasks(token);
     }
   }, []);
 
-  const loadTasks = async () => {
+  const loadTasks = async (auth) => {
     const response = await api.get("/task", {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${auth}` },
     });
     setTaskList(response.data.data);
   };
@@ -31,7 +31,7 @@ export const TasksProvider = ({ children }) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    await loadTasks();
+    await loadTasks(token);
   };
 
   const removeTask = async (id) => {
@@ -40,7 +40,7 @@ export const TasksProvider = ({ children }) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    await loadTasks();
+    await loadTasks(token);
   };
 
   const changeTaskStatus = async (id, isComplete) => {
@@ -53,13 +53,18 @@ export const TasksProvider = ({ children }) => {
         headers: { Authorization: `Bearer ${token}` },
       }
     );
-    console.log(id, isComplete);
-    await loadTasks();
+    await loadTasks(token);
   };
 
   return (
     <TasksContext.Provider
-      value={{ taskList, registerTask, removeTask, changeTaskStatus }}
+      value={{
+        taskList,
+        registerTask,
+        removeTask,
+        changeTaskStatus,
+        loadTasks,
+      }}
     >
       {children}
     </TasksContext.Provider>

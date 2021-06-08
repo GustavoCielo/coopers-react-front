@@ -32,8 +32,8 @@ export default function ToDoList() {
             .filter((item) => !item.completed)
             .map((item) => {
               return (
-                <li>
-                  <Task task={item} key={item._id} />
+                <li key={item._id}>
+                  <Task task={item} />
                 </li>
               );
             })}

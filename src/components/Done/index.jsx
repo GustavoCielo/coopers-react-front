@@ -11,13 +11,17 @@ export default function Done() {
         <div style={{ height: "20px", backgroundColor: "var(--green)" }}></div>
         <h2>Done</h2>
         <p>Congratulations!</p>
-        <p>You have done {taskList.length} tasks</p>
+        <p>
+          You have done{" "}
+          {taskList.reduce((acc, item) => (item.completed ? acc + 1 : acc), 0)}{" "}
+          tasks
+        </p>
         <ul>
           {taskList
             .filter((item) => item.completed)
             .map((item) => (
-              <li>
-                <Task task={item} key={item._id} />
+              <li key={item._id}>
+                <Task task={item} />
               </li>
             ))}
         </ul>

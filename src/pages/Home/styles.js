@@ -77,6 +77,10 @@ export const TextContainer = styled.div`
     font-size: 24px;
     line-height: 24px;
   }
+  @media (max-width: 1200px) {
+    margin: 104px auto 16px auto;
+    text-align: center;
+  }
 `;
 
 export const FlexContainer = styled.div`
@@ -86,6 +90,9 @@ export const FlexContainer = styled.div`
   background-image: url("/Group6.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  @media (max-width: 1200px) {
+    background-image: none;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -95,6 +102,9 @@ export const ImageContainer = styled.div`
     height: 481.52px;
     margin-top: 62px;
     margin-right: 86px;
+  }
+  @media (max-width: 1200px) {
+    display: none;
   }
 `;
 
@@ -142,6 +152,12 @@ export const ToDoTitleContainer = styled.div`
     line-height: 30.12px;
     color: var(--white);
   }
+  @media (max-width: 850px) {
+    text-align: center;
+    span {
+      margin: 0 24px;
+    }
+  }
 `;
 
 export const ToDoContainer = styled.div`
@@ -149,4 +165,13 @@ export const ToDoContainer = styled.div`
   justify-content: center;
   padding-top: 92px;
   padding-bottom: 200px;
+  @media (max-width: 850px) {
+    flex-direction: column;
+    padding: 0;
+    margin: 50px 0;
+    align-items: center;
+    div > div {
+      margin: 20px 0;
+    }
+  }
 `;

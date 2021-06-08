@@ -23,19 +23,16 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    api
-      .post("/user/login", data)
-      .then((response) => {
-        const { token, user } = response.data;
+  const onSubmit = async (data) => {
+    const response = await api.post("/user/login", data);
 
-        localStorage.setItem("@coopers:token", JSON.stringify(token));
-        localStorage.setItem("@coopers:user", JSON.stringify(user));
+    const { token, user } = response.data;
+    await setToken(token);
 
-        setToken(token);
-        loadTasks();
-      })
-      .catch((err) => console.log(err));
+    localStorage.setItem("@coopers:token", JSON.stringify(token));
+    localStorage.setItem("@coopers:user", JSON.stringify(user));
+
+    await loadTasks(token);
   };
 
   return (

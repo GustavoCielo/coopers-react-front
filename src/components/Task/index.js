@@ -18,10 +18,21 @@ export default function Task({ task }) {
       <div>
         <input
           type="checkbox"
+          name={task._id}
+          id={task._id}
           onClick={() => changeTaskStatus(task._id, task.completed)}
           onChange={() => setIsChecked(!isChecked)}
           checked={isChecked}
-        ></input>
+          style={{ display: "none" }}
+        />
+        <label
+          htmlFor={task._id}
+          style={
+            isChecked
+              ? { backgroundImage: "url('/isNotCompleted.svg')" }
+              : { backgroundImage: "url('/isCompleted.svg')" }
+          }
+        ></label>
         {/* <input
           type="text"
           value={task.description}
