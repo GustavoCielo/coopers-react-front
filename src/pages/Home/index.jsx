@@ -1,5 +1,6 @@
 import Done from "../../components/Done";
 import ToDoList from "../../components/ToDoList";
+import Form from "../../components/Form";
 import { useLogin } from "../../Providers/login";
 import {
   ArrowContainer,
@@ -14,6 +15,7 @@ import {
   ToDoTitleContainer,
   ToDoContainer,
 } from "./styles";
+import CarouselComp from "../../components/Caroulsel";
 
 export default function Home() {
   const { token } = useLogin();
@@ -45,7 +47,7 @@ export default function Home() {
               <h2>your daily jobs</h2>
               <p>The only way to get things done</p>
               <ButtonToDo>
-                <a href="/#ToDoTitleContainer">Go to To Do List</a>
+                <a href="/#ToDoTitleContainer">Go to To-do list</a>
               </ButtonToDo>
             </TextContainer>
             <ImageContainer>
@@ -75,6 +77,10 @@ export default function Home() {
         <ToDoList />
         <Done />
       </ToDoContainer>
+      {/* ADD SECTION WITH CAROUSEL HERE */}
+      <CarouselComp />
+      <Form />
+      {/* TODO: make form work */}
       <footer>
         <p>Need help?</p>
         <p>coopers@coopers.pro</p>

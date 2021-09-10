@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   header {
-    background: var(--green);
+    background: #ffffff;
     width: 100%;
     height: 24px;
     position: relative;
@@ -118,6 +118,7 @@ export const ButtonToDo = styled.button`
   font-size: 24px;
   line-height: 29.26px;
   margin-top: 44px;
+  border-radius: 10px;
 `;
 
 export const ArrowContainer = styled.div`
@@ -130,14 +131,21 @@ export const ArrowContainer = styled.div`
 
 export const ToDoTitleContainer = styled.div`
   width: 100%;
-  height: 327px;
-  background: var(--black);
+  height: 420px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    176deg,
+    rgba(255, 255, 255, 1) 18%,
+    rgba(0, 0, 0, 1) 18%,
+    rgba(0, 0, 0, 1) 77%,
+    rgba(255, 255, 255, 1) 77%
+  );
   color: var(--white);
   text-align: center;
   padding-top: 80px;
   h2 {
     width: 302px;
-    margin: 0 auto;
+    margin: 40px auto;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 60px;
@@ -146,11 +154,13 @@ export const ToDoTitleContainer = styled.div`
     margin-bottom: 41px;
   }
   span {
+    display: inline-block;
     font-family: "Mullish", sans-serif;
     font-weight: 400;
     font-size: 24px;
     line-height: 30.12px;
     color: var(--white);
+    max-width: 600px;
   }
   @media (max-width: 850px) {
     text-align: center;
