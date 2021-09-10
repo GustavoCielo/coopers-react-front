@@ -9,7 +9,14 @@ export const Container = styled.div`
   }
   footer {
     height: 193px;
-    background-color: var(--black);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      178deg,
+      rgba(255, 255, 255, 1) 26%,
+      rgba(0, 0, 0, 1) 27%,
+      rgba(0, 0, 0, 1) 100%,
+      rgba(255, 255, 255, 1) 100%
+    );
     text-align: center;
     padding: 40px;
     p {
