@@ -85,6 +85,7 @@ export default function Home() {
         <p>Need help?</p>
         <p>coopers@coopers.pro</p>
         <p>© Coopers. All rights reserved</p>
+        <div></div>
       </footer>
     </Container>
   );

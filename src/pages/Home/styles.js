@@ -8,7 +8,8 @@ export const Container = styled.div`
     position: relative;
   }
   footer {
-    height: 193px;
+    height: 300px;
+    padding-top: 91px;
     background: rgb(255, 255, 255);
     background: linear-gradient(
       178deg,
@@ -18,7 +19,6 @@ export const Container = styled.div`
       rgba(255, 255, 255, 1) 100%
     );
     text-align: center;
-    padding: 40px;
     p {
       margin: 14px 0;
       font-family: "Poppins", sans-serif;
@@ -26,9 +26,25 @@ export const Container = styled.div`
       color: var(--white);
       font-size: 24px;
     }
-    p:last-child {
+    p:nth-last-child(2) {
+      margin: 0 0 28px 0;
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: normal;
       font-size: 14px;
-      font-weight: 400;
+      line-height: 21px;
+      color: #ffffff;
+    }
+    div {
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        179deg,
+        rgba(0, 0, 0, 1) 10%,
+        rgba(74, 201, 89, 1) 11%
+      );
+      height: 48px;
+      width: 511px;
+      margin: 0 auto;
     }
   }
 `;
