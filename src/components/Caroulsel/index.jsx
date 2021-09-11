@@ -1,5 +1,5 @@
 import Carousel from "react-elastic-carousel";
-import { SectionCarousel } from "./styles";
+import { SectionCarousel, CarContainer } from "./styles";
 
 export default function CarouselComp() {
   const items = [
@@ -31,27 +31,42 @@ export default function CarouselComp() {
 
   return (
     <SectionCarousel>
+      <div className="goodThingsContainer">
+        <h2>good things</h2>
+      </div>
       <Carousel showArrows={false}>
         {items.map((item) => (
-          <div key={items.id}>
-            <div>
-              <div>imagem</div>
+          <div key={items.id} className="keyContainer">
+            <CarContainer>
+              <div>
+                <figure>
+                  <img src="./car-image.png" alt="" />
+                </figure>
+              </div>
               <h3>function</h3>
               <span>{item.title_1}</span>
               <a href="/">read more</a>
-            </div>
-            <div>
-              <div>imagem</div>
+            </CarContainer>
+            <CarContainer>
+              <div>
+                <figure>
+                  <img src="./car-image-2.png" alt="" />
+                </figure>
+              </div>
               <h3>function</h3>
               <span>{item.title_2}</span>
               <a href="/">read more</a>
-            </div>
-            <div>
-              <div>imagem</div>
+            </CarContainer>
+            <CarContainer>
+              <div>
+                <figure>
+                  <img src="./car-image-3.png" alt="" />
+                </figure>
+              </div>
               <h3>function</h3>
               <span>{item.title_3}</span>
               <a href="/">read more</a>
-            </div>
+            </CarContainer>
           </div>
         ))}
       </Carousel>

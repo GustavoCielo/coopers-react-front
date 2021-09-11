@@ -2,9 +2,10 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "./styles.js";
+import { Container, FormContainer } from "./styles.js";
 
 const Form = ({ saveRegister }) => {
-    // TODO: saveRegister vem do useState pra salvar e renderizar, entao tem q salvar na api
+  // TODO: saveRegister vem do useState pra salvar e renderizar, entao tem q salvar na api
   const onSubmit = (data) => {
     saveRegister(data);
     console.log(data);
@@ -31,28 +32,38 @@ const Form = ({ saveRegister }) => {
   console.log(errors);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <span>Your name</span>
-      <input
-        type="text"
-        placeholder="Type your name here..."
-        {...register("name")}
-      />
-      <p>{errors.name?.message}</p>
-      <span>Email*</span>
-      <input
-        type="text"
-        placeholder="example@example.com"
-        {...register("email")}
-      />
-      <p>{errors.email?.message}</p>
-      <span>Telephone*</span>
-      <input type="tel" {...register("telephone")} />
-      <p>{errors.telephone?.message}</p>
-      <span>Message*</span>
-      <input type="text" placeholder="Type what you want to say to us" />
-      <button type="submit">SEND NOW</button>
-    </form>
+    <Container>
+      <div>
+        <span>
+          GET IN <strong>TOUCH</strong>
+        </span>
+      </div>
+      <FormContainer>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <p>Your name</p>
+          <input
+            type="text"
+            placeholder="Type your name here..."
+            {...register("name")}
+          />
+          <span>{errors.name?.message}</span>
+          <p>Email*</p>
+          <input
+            type="text"
+            placeholder="example@example.com"
+            {...register("email")}
+          />
+          <span>{errors.email?.message}</span>
+          <p>Telephone*</p>
+          <input type="tel" {...register("telephone")} />
+          <span>{errors.telephone?.message}</span>
+          <p>Message*</p>
+          <input type="text" placeholder="Type what you want to say to us" />
+          <br />
+          <button type="submit">SEND NOW</button>
+        </form>
+      </FormContainer>
+    </Container>
   );
 };
 

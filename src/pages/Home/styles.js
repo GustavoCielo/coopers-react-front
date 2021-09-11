@@ -143,9 +143,9 @@ export const ToDoTitleContainer = styled.div`
   background: linear-gradient(
     176deg,
     rgba(255, 255, 255, 1) 18%,
-    rgba(0, 0, 0, 1) 18%,
+    rgba(0, 0, 0, 1) 19%,
     rgba(0, 0, 0, 1) 77%,
-    rgba(255, 255, 255, 1) 77%
+    rgba(255, 255, 255, 1) 78%
   );
   color: var(--white);
   text-align: center;
