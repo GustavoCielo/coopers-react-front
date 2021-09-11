@@ -18,7 +18,9 @@ export default createGlobalStyle`
  body {
     background: var(--white);
     color: var(--black);
-    -webkit-font-smoothing: antialiased !important
+    max-width: 1440px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased !important;
   }
 
   /* body, input, button {
