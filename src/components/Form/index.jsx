@@ -4,10 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import "./styles.js";
 import { Container, FormContainer, ImageContainer } from "./styles.js";
 
-const Form = ({ saveRegister }) => {
+const Form = () => {
   // TODO: saveRegister vem do useState pra salvar e renderizar, entao tem q salvar na api
   const onSubmit = (data) => {
-    saveRegister(data);
+    // saveRegister(data);
     console.log(data);
   };
 
@@ -28,8 +28,6 @@ const Form = ({ saveRegister }) => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  console.log(errors);
 
   return (
     <Container>
@@ -77,6 +75,7 @@ const Form = ({ saveRegister }) => {
             name="message"
             id="message"
             placeholder="Type what you want to say to us"
+            {...register("message")}
           ></textarea>
           <br />
           <button type="submit">SEND NOW</button>
