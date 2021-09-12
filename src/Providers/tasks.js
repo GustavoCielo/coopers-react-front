@@ -16,9 +16,7 @@ export const TasksProvider = ({ children }) => {
   }, []);
 
   const loadTasks = async (auth) => {
-    const response = await api.get("/task", {
-      headers: { Authorization: `Bearer ${auth}` },
-    });
+    const response = await api.get("/");
     setTaskList(response.data.data);
   };
 
@@ -26,35 +24,31 @@ export const TasksProvider = ({ children }) => {
     const newTask = {
       description,
     };
-    await api.post("/task", newTask, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    await api.post("/", newTask
+    );
     await loadTasks(token);
   };
 
   const removeTask = async (id) => {
-    await api.delete(`/task/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    await api.delete(`/${id}`);
     await loadTasks(token);
   };
 
   const changeTaskStatus = async (id, isComplete) => {
     await api.put(
-      `/task/${id}`,
+      `/${id}`,
       {
         completed: !isComplete,
-      },
-      {
-        headers: { Authorization: `Bearer ${token}` },
       }
     );
     await loadTasks(token);
   };
+
+  // isComplete: str = todo or done for boolean equivalent
+  const eraseAll = async (isComplete) => {
+    await api.delete(`/eraseall/${isComplete}`)
+    await loadTasks(token)
+  }
 
   return (
     <TasksContext.Provider
