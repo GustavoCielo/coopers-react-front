@@ -15,7 +15,7 @@ import {
   ToDoTitleContainer,
   ToDoContainer,
 } from "./styles";
-import CarouselComp from "../../components/Caroulsel";
+import CarouselComp from "../../components/Carousel";
 
 export default function Home() {
   const { token } = useLogin();
@@ -77,10 +77,8 @@ export default function Home() {
         <ToDoList />
         <Done />
       </ToDoContainer>
-      {/* ADD SECTION WITH CAROUSEL HERE */}
       <CarouselComp />
       <Form />
-      {/* TODO: make form work */}
       <footer>
         <p>Need help?</p>
         <p>coopers@coopers.pro</p>

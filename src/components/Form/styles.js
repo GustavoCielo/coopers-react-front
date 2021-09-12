@@ -106,7 +106,7 @@ export const FormContainer = styled.div`
     line-height: 20px;
     display: flex;
     align-items: center;
-    color: #9a9a9a;
+    color: #06152b;
     margin-left: 25px;
     resize: none;
     width: 580px;

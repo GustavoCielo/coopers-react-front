@@ -1,24 +1,21 @@
 import api from "../services/api";
-import { useContext, createContext, useState } from "react";
+import { useContext, createContext } from "react";
 
 const ContactContext = createContext();
 
 export const ContactProvider = ({ children }) => {
-  const [contactMessage, setContactMessage] = useState([]);
 
   const saveContact = (data) => {
     api
-      .post("users/", data)
+      .post("/form", data)
       .then((response) => {
         console.log(response);
       })
-      .catch((error) => console.log(error, "Usuário já existe."));
+      .catch((error) => console.log(error, "Mensagem já existe."));
   };
 
   return (
-    <ContactContext.Provider
-      value={{ contactMessage, setContactMessage, saveContact }}
-    >
+    <ContactContext.Provider value={{ saveContact }}>
       {children}
     </ContactContext.Provider>
   );

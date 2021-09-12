@@ -3,12 +3,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "./styles.js";
 import { Container, FormContainer, ImageContainer } from "./styles.js";
+import { useContact } from "../../Providers/form.js";
 
 const Form = () => {
-  // TODO: saveRegister vem do useState pra salvar e renderizar, entao tem q salvar na api
+  const { saveContact } = useContact();
+
   const onSubmit = (data) => {
-    // saveRegister(data);
     console.log(data);
+    saveContact(data);
   };
 
   const schema = yup.object().shape({

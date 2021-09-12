@@ -31,6 +31,7 @@ export default function Login() {
 
     localStorage.setItem("@coopers:token", JSON.stringify(token));
     localStorage.setItem("@coopers:user", JSON.stringify(user));
+    console.log(token)
 
     await loadTasks(token);
   };
