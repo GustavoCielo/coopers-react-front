@@ -2,7 +2,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "./styles.js";
-import { Container, FormContainer } from "./styles.js";
+import { Container, FormContainer, ImageContainer } from "./styles.js";
 
 const Form = ({ saveRegister }) => {
   // TODO: saveRegister vem do useState pra salvar e renderizar, entao tem q salvar na api
@@ -33,11 +33,16 @@ const Form = ({ saveRegister }) => {
 
   return (
     <Container>
-      <div>
-        <span>
-          GET IN <strong>TOUCH</strong>
-        </span>
-      </div>
+      <ImageContainer>
+        <img src="./tatiana.png" alt="woman" />
+        <div>
+          <img src="./icon-mail.svg" alt="icon mail" />
+          <span>
+            GET IN <br />
+            <strong>TOUCH</strong>
+          </span>
+        </div>
+      </ImageContainer>
       <FormContainer>
         <form onSubmit={handleSubmit(onSubmit)}>
           <p>Your name</p>
@@ -47,18 +52,32 @@ const Form = ({ saveRegister }) => {
             {...register("name")}
           />
           <span>{errors.name?.message}</span>
-          <p>Email*</p>
-          <input
-            type="text"
-            placeholder="example@example.com"
-            {...register("email")}
-          />
-          <span>{errors.email?.message}</span>
-          <p>Telephone*</p>
-          <input type="tel" {...register("telephone")} />
-          <span>{errors.telephone?.message}</span>
+          <div>
+            <div>
+              <p>Email*</p>
+              <input
+                type="email"
+                placeholder="example@example.com"
+                {...register("email")}
+              />
+              <span>{errors.email?.message}</span>
+            </div>
+            <div>
+              <p>Telephone*</p>
+              <input
+                type="tel"
+                placeholder="( ) _____-____"
+                {...register("telephone")}
+              />
+              <span>{errors.telephone?.message}</span>
+            </div>
+          </div>
           <p>Message*</p>
-          <input type="text" placeholder="Type what you want to say to us" />
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Type what you want to say to us"
+          ></textarea>
           <br />
           <button type="submit">SEND NOW</button>
         </form>
