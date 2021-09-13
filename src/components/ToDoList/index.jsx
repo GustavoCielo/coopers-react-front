@@ -30,16 +30,16 @@ export default function ToDoList() {
         />
         <ul>
           {taskList
-            .filter((item) => !item.completed)
+            .filter((item) => !item.task_done)
             .map((item) => {
               return (
-                <li key={item._id}>
+                <li key={item.id}>
                   <Task task={item} />
                 </li>
               );
             })}
         </ul>
-        {/* <button>Erase all</button> */}
+        <button>Erase all</button>
       </ToDoListContainer>
     </div>
   );

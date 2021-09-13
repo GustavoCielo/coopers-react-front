@@ -4,7 +4,7 @@ import { Container } from "./styles";
 
 export default function Task({ task }) {
   const { removeTask, changeTaskStatus, registerTask } = useTasks();
-  const [isChecked, setIsChecked] = useState(task.completed);
+  const [isChecked, setIsChecked] = useState(task.task_done);
   const [editTask, setEditTask] = useState("");
 
   const addTask = (evt) => {
@@ -13,20 +13,22 @@ export default function Task({ task }) {
     }
   };
 
+  console.log(isChecked)
+
   return (
     <Container>
       <div>
         <input
           type="checkbox"
-          name={task._id}
-          id={task._id}
-          onClick={() => changeTaskStatus(task._id, task.completed)}
+          name={task.id}
+          id={task.id}
+          onClick={() => changeTaskStatus(task.id, task.task_done)}
           onChange={() => setIsChecked(!isChecked)}
           checked={isChecked}
           style={{ display: "none" }}
         />
         <label
-          htmlFor={task._id}
+          htmlFor={task.id}
           style={
             isChecked
               ? { backgroundImage: "url('/isNotCompleted.svg')" }
@@ -39,9 +41,9 @@ export default function Task({ task }) {
           onChange={(evt) => setEditTask(evt.target.value)}
           onKeyPress={(evt) => addTask(evt)}
         /> */}
-        <span>{task.description}</span>
+        <span>{task.task_content}</span>
       </div>
-      <button onClick={() => removeTask(task._id)}>Delete</button>
+      <button onClick={() => removeTask(task.id)}>Delete</button>
     </Container>
   );
 }

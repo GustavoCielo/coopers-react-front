@@ -13,19 +13,19 @@ export default function Done() {
         <p>Congratulations!</p>
         <p>
           You have done{" "}
-          {taskList.reduce((acc, item) => (item.completed ? acc + 1 : acc), 0)}{" "}
+          {taskList.reduce((acc, item) => (item.task_done ? acc + 1 : acc), 0)}{" "}
           tasks
         </p>
         <ul>
           {taskList
-            .filter((item) => item.completed)
+            .filter((item) => item.task_done)
             .map((item) => (
-              <li key={item._id}>
+              <li key={item.id}>
                 <Task task={item} />
               </li>
             ))}
         </ul>
-        {/* <button>Erase all</button> */}
+        <button>Erase all</button>
       </ToDoListContainer>
     </div>
   );

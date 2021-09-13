@@ -13,46 +13,43 @@ export const TasksProvider = ({ children }) => {
 
   const loadTasks = async () => {
     const response = await api.get("/");
-    setTaskList(response.data.data);
+    setTaskList(response.data)
   };
 
-  const registerTask = async (description) => {
-    const newTask = {
-      description,
-    };
-    await api.post("/", newTask);
-    await loadTasks();
-  };
+  // const registerTask = async (description) => {
+  //   const newTask = {
+  //     description,
+  //   };
+  //   await api.post("/", newTask);
+  //   await loadTasks();
+  // };
 
-  const removeTask = async (id) => {
-    await api.delete(`/${id}`);
-    await loadTasks();
-  };
+  // const removeTask = async (id) => {
+  //   await api.delete(`/${id}`);
+  //   await loadTasks();
+  // };
 
-  const changeTaskStatus = async (id, isComplete) => {
-    await api.put(
-      `/${id}`,
-      {
-        completed: !isComplete,
-      }
-    );
-    await loadTasks();
-  };
+  // const changeTaskStatus = async (id, isComplete) => {
+  //   await api.put(
+  //     `/${id}`,
+  //     {
+  //       completed: !isComplete,
+  //     }
+  //   );
+  //   await loadTasks();
+  // };
 
-  // isComplete: str = todo or done for boolean equivalent
-  const eraseAll = async (isComplete) => {
-    await api.delete(`/eraseall/${isComplete}`)
-    await loadTasks()
-  }
+  // // isComplete: str = todo or done for boolean equivalent
+  // const eraseAll = async (isComplete) => {
+  //   await api.delete(`/eraseall/${isComplete}`)
+  //   await loadTasks()
+  // }
 
   return (
     <TasksContext.Provider
       value={{
         taskList,
-        registerTask,
-        removeTask,
-        changeTaskStatus,
-        loadTasks,
+        loadTasks
       }}
     >
       {children}
