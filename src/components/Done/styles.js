@@ -4,6 +4,7 @@ export const ToDoListContainer = styled.div`
   box-shadow: 0px 4px 12px rgba(66, 66, 66, 0.198454);
   margin-left: 40px;
   width: 380px;
+  min-height: 235px;
   h2,
   p {
     text-align: center;

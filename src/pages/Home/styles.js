@@ -198,6 +198,10 @@ export const ToDoContainer = styled.div`
   justify-content: center;
   padding-top: 92px;
   padding-bottom: 200px;
+  background-image: url("grafismos-lateral-esquerda.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  margin-bottom: 80px;
   @media (max-width: 850px) {
     flex-direction: column;
     padding: 0;
