@@ -210,5 +210,6 @@ export const ToDoContainer = styled.div`
     div > div {
       margin: 20px 0;
     }
+    background-image: none;
   }
 `;

@@ -5,7 +5,7 @@ import Task from "../Task";
 
 export default function ToDoList() {
   const [task, setTask] = useState("");
-  const { taskList, registerTask } = useTasks();
+  const { taskList, registerTask, eraseAll } = useTasks();
 
 
   const addTask = (evt) => {
@@ -13,6 +13,12 @@ export default function ToDoList() {
       registerTask(task);
     }
   };
+
+  const clearInput = (evt) => {
+    if (evt.key === "Enter" || evt.key === "Escape") {
+      setTask("")
+    }
+  }
 
   return (
     <div>
@@ -26,6 +32,7 @@ export default function ToDoList() {
           value={task}
           onChange={(evt) => setTask(evt.target.value)}
           onKeyPress={(evt) => addTask(evt)}
+          onKeyUp={(evt) => clearInput(evt)}
           placeholder="Add new here..."
         />
         <ul>
@@ -39,7 +46,7 @@ export default function ToDoList() {
               );
             })}
         </ul>
-        <button>Erase all</button>
+        <button onClick={() => { eraseAll("todo") }}>Erase all</button>
       </ToDoListContainer>
     </div>
   );

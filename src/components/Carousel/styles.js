@@ -17,7 +17,6 @@ export const SectionCarousel = styled.section`
       font-weight: bold;
       font-size: 48px;
       line-height: 110%;
-      /* identical to box height, or 53px */
       margin-top: 80px;
       margin-left: 80px;
 
@@ -25,6 +24,10 @@ export const SectionCarousel = styled.section`
       align-items: center;
 
       color: #ffffff;
+    }
+
+    @media (max-width: 700px) {
+      margin: 0;
     }
   }
   
@@ -70,6 +73,7 @@ export const CarContainer = styled.div`
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 1px 3px #9499b3;
+
   h3 {
     margin-top: 30px;
     margin-bottom: 22px;
@@ -85,6 +89,7 @@ export const CarContainer = styled.div`
     padding-left: 8px;
     margin-left: 20px;
   }
+
   span {
     font-family: Soleil;
     font-style: normal;
@@ -93,12 +98,9 @@ export const CarContainer = styled.div`
     min-height: 72px;
     line-height: 120%;
     margin-left: 20px;
-    /* or 24px */
-
-    /* Text */
-
     color: #312f4f;
   }
+
   a {
     position: relative;
     font-family: Soleil;
@@ -108,8 +110,74 @@ export const CarContainer = styled.div`
     line-height: 150%;
     top: 50px;
     left: 20px;
-    /* identical to box height, or 24px */
-
     color: #42d76b;
+  }
+
+  @media (max-width: 1300px) {
+    width: 260px;
+    height: 330px;
+
+    img {
+      width: 260px;
+    }
+
+    h3 {
+      font-size: 10px;
+    }
+
+    span {
+      font-size: 14px;
+    }
+
+    a {
+      font-size: 10px;
+      top: 20px;
+    }
+  }
+
+  @media (max-width: 968px) {
+    width: 200px;
+    height: 250px;
+    img {
+      width: 200px;
+    }
+
+    h3 {
+      font-size: 10px;
+    }
+
+    span {
+      font-size: 14px;
+    }
+
+    a {
+      font-size: 10px;
+      top: 20px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    width: 160px;
+    height: 280px;
+    img {
+      width: 160px;
+    }
+
+    h3 {
+      font-size: 10px;
+    }
+
+    span {
+      font-size: 14px;
+    }
+
+    a {
+      font-size: 10px;
+      top: 20px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    margin-left: 0;
   }
 `;

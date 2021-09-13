@@ -13,8 +13,6 @@ export default function Task({ task }) {
     }
   };
 
-  console.log(isChecked)
-
   return (
     <Container>
       <div>

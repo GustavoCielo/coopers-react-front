@@ -4,6 +4,7 @@ import { ToDoListContainer } from "./styles";
 
 export default function Done() {
   const { taskList } = useTasks();
+  const { eraseAll } = useTasks();
 
   return (
     <div>
@@ -25,7 +26,7 @@ export default function Done() {
               </li>
             ))}
         </ul>
-        <button>Erase all</button>
+        <button onClick={() => { eraseAll("done") }}>Erase all</button>
       </ToDoListContainer>
     </div>
   );

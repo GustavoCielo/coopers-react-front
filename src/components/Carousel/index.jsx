@@ -29,6 +29,12 @@ export default function CarouselComp() {
     },
   ];
 
+  const breakPoints = [
+    { width: 550, itemsToShow: 1, itemsToScroll: 1, pagination: false },
+    { width: 850, itemsToShow: 1 },
+    { width: 1450, itemsToShow: 1, itemsToScroll: 1 },
+  ]
+
   return (
     <SectionCarousel>
       <div className="goodThingsContainer">
