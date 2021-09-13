@@ -31,7 +31,7 @@ export default function Home() {
                 Logo for coopers
               </figcaption>
             </figure>
-            {!token && (
+            {/* {!token && (
               <Button
                 onClick={() => {
                   localStorage.clear();
@@ -39,7 +39,7 @@ export default function Home() {
               >
                 Entrar
               </Button>
-            )}
+            )} */}
           </LogoContainer>
           <MainContainer>
             <TextContainer>

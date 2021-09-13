@@ -7,6 +7,7 @@ export default function ToDoList() {
   const [task, setTask] = useState("");
   const { taskList, registerTask } = useTasks();
 
+
   const addTask = (evt) => {
     if (evt.key === "Enter") {
       registerTask(task);

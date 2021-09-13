@@ -7,15 +7,11 @@ const TasksContext = createContext();
 export const TasksProvider = ({ children }) => {
   const [taskList, setTaskList] = useState([]);
 
-  const { token } = useLogin();
-
   useEffect(() => {
-    if (token) {
-      loadTasks(token);
-    }
+    loadTasks();
   }, []);
 
-  const loadTasks = async (auth) => {
+  const loadTasks = async () => {
     const response = await api.get("/");
     setTaskList(response.data.data);
   };
@@ -24,14 +20,13 @@ export const TasksProvider = ({ children }) => {
     const newTask = {
       description,
     };
-    await api.post("/", newTask
-    );
-    await loadTasks(token);
+    await api.post("/", newTask);
+    await loadTasks();
   };
 
   const removeTask = async (id) => {
     await api.delete(`/${id}`);
-    await loadTasks(token);
+    await loadTasks();
   };
 
   const changeTaskStatus = async (id, isComplete) => {
@@ -41,13 +36,13 @@ export const TasksProvider = ({ children }) => {
         completed: !isComplete,
       }
     );
-    await loadTasks(token);
+    await loadTasks();
   };
 
   // isComplete: str = todo or done for boolean equivalent
   const eraseAll = async (isComplete) => {
     await api.delete(`/eraseall/${isComplete}`)
-    await loadTasks(token)
+    await loadTasks()
   }
 
   return (
